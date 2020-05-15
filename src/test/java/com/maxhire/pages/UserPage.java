@@ -1,9 +1,10 @@
 package com.maxhire.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class UserPage {
+public class UserPage extends BasePage {
 	
 	@FindBy(xpath="//span[text()='Users']")
 	private WebElement user_tab;
@@ -51,8 +52,8 @@ public class UserPage {
 	private WebElement user_fillForm_errMsg;
 	
  
-	public UserPage() {
-		
+	public UserPage(WebDriver driver) {
+		super(driver);
 	}
 
 }

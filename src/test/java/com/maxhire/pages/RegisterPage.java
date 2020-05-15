@@ -9,31 +9,31 @@ public class RegisterPage {
 	WebDriver driver;
 	
 	@FindBy(xpath="//input[@placeholder='First name']")
-	WebElement reg_firstName_input;
+	WebElement reg_firstName_Input;
 	
 	@FindBy(xpath="//input[@placeholder='Last name']")
-	WebElement reg_lastName;
+	WebElement reg_lastName_Input;
 	
 	@FindBy(xpath="//input[@placeholder='Client name']")
-	WebElement reg_clientName;
+	WebElement reg_clientName_Input;
 	
 	@FindBy(xpath="//input[@placeholder='Email address']")
-	WebElement reg_emailAddress;
+	WebElement reg_emailAddress_Input;
 	
 	@FindBy(xpath="//input[@placeholder='Confirm email address ']")
-	WebElement reg_confirmEmailAddress;
+	WebElement reg_confirmEmailAddress_Input;
 	
 	@FindBy(xpath="//input[@placeholder='Create password']")
-	WebElement reg_createPassword;
+	WebElement reg_createPassword_Input;
 	
 	@FindBy(xpath="//input[@placeholder='Confirm password']")
-	WebElement reg_confirmPassword;
+	WebElement reg_confirmPassword_Input;
 	
 	@FindBy(xpath="//button[@type='submit']")
-	WebElement reg_register;
+	WebElement reg_register_Button;
 	
 	@FindBy(xpath="//a[contains(text(),'Log in')]")
-	WebElement reg_login_link;
+	WebElement reg_login_Link;
 	
 	
 	

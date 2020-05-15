@@ -4,11 +4,24 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.maxhire.pages.LoginPage;
 
 public class BaseTest {
+	
+	
+	@BeforeTest
+	public void envSetup() {
+		
+	}
+	
+	@AfterTest
+	public void tearDown() {
+		
+	}
 	
 	@Test	
 	public void login() throws InterruptedException {

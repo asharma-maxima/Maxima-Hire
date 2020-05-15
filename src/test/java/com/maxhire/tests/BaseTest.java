@@ -1,41 +1,74 @@
 package com.maxhire.tests;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
-import com.maxhire.pages.LoginPage;
 
 public class BaseTest {
-	
+	WebDriver driver;
+	String browser;
+	String url;
+	String username;
+	String password;
+	int timeout;
+	int pollingInMilli;
 	
 	@BeforeTest
-	public void envSetup() {
+	public void launchApplication() {
+		File file = new File("./resources/application.properties");
+		try {
+			FileInputStream fis = new FileInputStream(file);
+			Properties prop = new Properties();
+			prop.load(fis);
+			browser = prop.getProperty("browser");
+			url = prop.getProperty("url");
+			username = prop.getProperty("username");
+			password = prop.getProperty("password");
+			timeout = Integer.valueOf(prop.getProperty("timeout"));
+			pollingInMilli = Integer.valueOf(prop.getProperty("pollingInMilli"));
 		
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		driver = getDriver();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get(url);
 	}
 	
 	@AfterTest
 	public void tearDown() {
-		
+		if(driver!=null) {
+			driver.quit();
+		}
 	}
 	
-	@Test	
-	public void login() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
-		driver.get("http://maximahire.com:8000/login");
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		LoginPage loginPage = new LoginPage(driver);
-		boolean isPresent = loginPage.getMail_add().isDisplayed();
-		System.out.println("email address field is present "+isPresent);
-		loginPage.getMail_add().sendKeys("kmore@maximaconsulting.net");
-		loginPage.getPassword().sendKeys("maxima@123");
-		loginPage.getLogin_btn().click();
+	
+	protected WebDriver getDriver() {
+		WebDriver webDriver = null;
+		if("chrome".equalsIgnoreCase(browser)) {
+			System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+			webDriver = new ChromeDriver();
+		}
+		if("ie".equalsIgnoreCase(browser)) {
+			System.setProperty("webdriver.ie.driver", "./drivers/InternerExplorerdriver.exe");
+			webDriver = new InternetExplorerDriver();
+		}
+		return webDriver;		
 	}
 
 }

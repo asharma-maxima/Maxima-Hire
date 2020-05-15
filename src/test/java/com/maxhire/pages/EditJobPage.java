@@ -3,11 +3,8 @@ package com.maxhire.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class EditJobPage {
-
-	WebDriver driver;
+public class EditJobPage extends BasePage {
 	
 	@FindBy(xpath="//input[@placeholder='No. of openings']")
 	WebElement edJob_noOfOpenings_Input;
@@ -61,10 +58,8 @@ public class EditJobPage {
 	WebElement job_jobDesciption_Input;
 	
 	
-	
-	public EditJobPage() {
-		PageFactory.initElements(driver,EditJobPage.class);
-		
+	public EditJobPage(WebDriver driver) {
+		super(driver);
 	}
 	
 	

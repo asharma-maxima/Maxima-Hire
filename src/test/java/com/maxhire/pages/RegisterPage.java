@@ -2,12 +2,9 @@ package com.maxhire.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class RegisterPage {
-	
-	WebDriver driver;
-	
+public class RegisterPage extends BasePage {
+		
 	@FindBy(xpath="//input[@placeholder='First name']")
 	WebElement reg_firstName_Input;
 	
@@ -35,11 +32,8 @@ public class RegisterPage {
 	@FindBy(xpath="//a[contains(text(),'Log in')]")
 	WebElement reg_login_Link;
 	
-	
-	
-	public RegisterPage() {
-		
-		PageFactory.initElements(driver,RegisterPage.class);
+	public RegisterPage(WebDriver driver) {
+		super(driver);
 	}
 	
 		

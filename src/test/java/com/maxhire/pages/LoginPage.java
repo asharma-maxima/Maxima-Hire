@@ -14,7 +14,7 @@ public class LoginPage {
 	WebDriver driver;
 
 	@FindBy(xpath="//input[@placeholder='Email address']")
-	private WebElement mail_add;
+	private WebElement abcmail_add;
 	
 	@FindBy(xpath="//input[@placeholder='Password']")
 	private WebElement password;

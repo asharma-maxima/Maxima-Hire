@@ -2,12 +2,9 @@ package com.maxhire.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 	
-	public class AddCandiatePage {
+	public class AddCandiatePage extends BasePage {
 		
-		WebDriver driver;
-
 		@FindBy(xpath="//input[@id='file']")
 		WebElement can_chooseFile_Button;
 		
@@ -122,9 +119,8 @@ import org.openqa.selenium.support.PageFactory;
 		@FindBy(xpath="//button[@class='btn btn-primary btn-sm']")
 		WebElement can_Submit_Input;
 		
-		public AddCandiatePage() {
-			PageFactory.initElements(driver, AddCandiatePage.class);
-		
+		public AddCandiatePage(WebDriver driver) {
+			super(driver);		
 		
 		}
 

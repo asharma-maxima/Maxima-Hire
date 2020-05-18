@@ -3,11 +3,8 @@ package com.maxhire.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class AddJobPage {
-
-	WebDriver driver;
+public class AddJobPage extends BasePage{
 	
 	@FindBy(xpath="//input[@placeholder='Enter Job Title']")
 	WebElement job_Title_Input;
@@ -72,8 +69,9 @@ public class AddJobPage {
 	@FindBy(xpath="//button[@class='btn btn-primary btn-sm']")
 	WebElement job_Submit_Button;
 	
-	public AddJobPage() {
-		PageFactory.initElements(driver,AddJobPage.class);
+	public AddJobPage(WebDriver driver) {
+		super(driver);
+		
 	}
 	
 		

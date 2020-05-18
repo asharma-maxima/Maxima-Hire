@@ -2,12 +2,9 @@ package com.maxhire.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class EditCandidatePage {
-	
-	WebDriver driver;
-	
+public class EditCandidatePage extends BasePage {
+		
 	@FindBy(xpath="//input[@placeholder='Primary Email']")
 	WebElement edCan_primaryEmail_Input;
 	
@@ -105,9 +102,8 @@ public class EditCandidatePage {
 	@FindBy(xpath="//button[@value='back']")
 	WebElement edCan_Back_Button;
 	
-	public EditCandidatePage() {
-		
-		PageFactory.initElements(driver,EditCandidatePage.class);
+	public EditCandidatePage(WebDriver driver) {
+		super(driver);
 	}
 	
 	

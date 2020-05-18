@@ -24,19 +24,19 @@ public class BasePage {
 	private static final int POLLING = 100;
 
 	@FindBy(xpath = "//button[@class='btn dropdown-toggle btn-secondary btn-sm']")
-	WebElement bas_add_Button;
+	WebElement bas_add_button;
 
 	@FindBy(xpath = "//a[contains(text(),'Job')]")
-	WebElement bas_addJob_Icon;
+	WebElement bas_addJob_icon;
 
 	@FindBy(xpath = "//a[contains(text(),'Candidate')]")
-	WebElement bas_addCandidate_Icon;
+	WebElement bas_addCandidate_icon;
 
 	@FindBy(xpath = "//div[@class='save activate']//a[@aria-label='Save']")
-	WebElement bas_saveChanges_Icon;
+	WebElement bas_saveChanges_icon;
 
 	@FindBy(xpath = "//div[@class='save activate']//a[@aria-label='Cancel']")
-	WebElement bas_cancelChanges_Icon;
+	WebElement bas_cancelChanges_icon;
 
 	public BasePage(WebDriver driver) {
 		this.driver = driver;

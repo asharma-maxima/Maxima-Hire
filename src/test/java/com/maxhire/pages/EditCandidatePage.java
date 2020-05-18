@@ -6,101 +6,101 @@ import org.openqa.selenium.support.FindBy;
 public class EditCandidatePage extends BasePage {
 		
 	@FindBy(xpath="//input[@placeholder='Primary Email']")
-	WebElement edCan_primaryEmail_Input;
+	private WebElement edCan_primaryEmail_input;
 	
 	@FindBy(xpath="//div[@id='primary_phone']//select")
-	WebElement edCan_mobileType_dropDown;
+	private WebElement edCan_mobileType_dropDown;
 	
 	@FindBy(xpath="//textarea[@placeholder='Full Address']")
-	WebElement edCan_fullAddress_Input;
+	private WebElement edCan_fullAddress_input;
 	
 	@FindBy(xpath="////input[@placeholder='City']")
-	WebElement edCan_City_Input;
+	private WebElement edCan_city_input;
 	
 	@FindBy(xpath="//input[@placeholder='Zip Code']")
-	WebElement edCan_zipCode_Input;
+	private WebElement edCan_zipCode_input;
 	
 	@FindBy(xpath="////input[@placeholder='State']")
-	WebElement edCan_State_Input;
+	private WebElement edCan_state_input;
 	
 	@FindBy(xpath="//input[@placeholder='Type Country']")
-	WebElement edCan_Country_Input;
+	private WebElement edCan_country_input;
 	
 	@FindBy(xpath="//input[@placeholder='Alternate Email']")
-	WebElement edCan_alternateEmail_Input;
+	private WebElement edCan_alternateEmail_input;
 	
 	@FindBy(xpath="//div[@id='secondary_phone']//select")
-	WebElement edCan_phoneType_dropDown;
+	private WebElement edCan_phoneType_dropDown;
 	
 	@FindBy(xpath="////input[@placeholder='Alternate Phone']")
-	WebElement edCan_alternatePhoneNo_Input;
+	private WebElement edCan_alternatePhoneNo_input;
 	
 	@FindBy(xpath="//input[@placeholder='Select Birth Date']")
-	WebElement edCan_birthDate_calanderSelect;
+	private WebElement edCan_birthDate_calanderSelect;
 	
 	@FindBy(xpath="//div[@id='owner']//select")
-	WebElement edCan_Owner_dropDown;
+	private WebElement edCan_owner_dropDown;
 	
 	@FindBy(xpath="//div[@id='source']//select")
-	WebElement edCan_Source_dropDown;
+	private WebElement edCan_source_dropDown;
 	
 	@FindBy(xpath="//input[@placeholder='Current Package']")
-	WebElement edCan_currentPackage_Input;
+	private WebElement edCan_currentPackage_input;
 	
 	@FindBy(xpath="//div[@id='ratings']//select")
-	WebElement edCan_Ratings_dropDown;
+	private WebElement edCan_ratings_dropDown;
 	
 	@FindBy(xpath="//input[@placeholder='Select Available Date']")
-	WebElement edCan_availableDate_calanderSelect;
+	private WebElement edCan_availableDate_calanderSelect;
 	
 	@FindBy(xpath="//input[@placeholder='Time: Eg, 9am to 5pm']")
-	WebElement edCan_Time_Input;
+	private WebElement edCan_time_input;
 	
 	@FindBy(xpath="//input[@placeholder='Time Zone']")
-	WebElement edCan_timeZone_autoDropDown;
+	private WebElement edCan_timeZone_autoDropDown;
 	
 	@FindBy(xpath="//textarea[@placeholder='Comments']")
-	WebElement edCan_Comments_Input;
+	private WebElement edCan_comments_input;
 	
 	@FindBy(xpath="//input[@placeholder='www.something.com']")
-	WebElement edCan_profileUrl_Input;
+	private WebElement edCan_profileUrl_input;
 	
 	@FindBy(xpath="//div[@id='sourced_by']//select")
-	WebElement edCan_sourcedBy_dropDown;
+	private WebElement edCan_sourcedBy_dropDown;
 	
 	@FindBy(xpath="//input[@placeholder='Expected Package']")
-	WebElement edCan_expectedPackage_Input;
+	private WebElement edCan_expectedPackage_input;
 	
 	@FindBy(xpath="//label[@class='custom-control-label']")
-	WebElement edCan_Relocate_Select;
+	private WebElement edCan_reLocate_select;
 	
 	@FindBy(xpath="//input[@placeholder='Select Joining Date']")
-	WebElement edCan_joiningDate_calanderSelect;
+	private WebElement edCan_joiningDate_calanderSelect;
 	
 	@FindBy(xpath="//span[contains(text(),'Add')]")
-	WebElement edCan_addEditJob_Button;
+	private WebElement edCan_addEditJob_button;
 	//add/edit cross check required/not
 	
 	@FindBy(xpath="//div[@class='multiselect__tags']")
-	WebElement edCan_assignJob_dropdown;
+	private WebElement edCan_assignJob_dropdown;
 	
 	@FindBy(xpath="//button[contains(text(),'Save Jobs')]")
-	WebElement edCan_saveJobs_Button;
+	private WebElement edCan_saveJobs_button;
 	
 	@FindBy(xpath="//input[@id='files']")
-	WebElement edCan_chooseFiles_Button;
+	private WebElement edCan_chooseFiles_button;
 	
 	@FindBy(xpath="//button[contains(text(),'Upload')]")
-	WebElement edCan_Upload_Button;
+	private WebElement edCan_Upload_button;
 	
 	@FindBy(xpath="//tr[@class='attachment-row']//td[2]//*[local-name()='svg']")
-	WebElement edCan_downloadIcon_Icon;
+	private WebElement edCan_downloadIcon_icon;
 	
 	@FindBy(xpath="//tr[@class='attachment-row']//td[3]//*[local-name()='svg']")
-	WebElement edCan_cancelIcon_Icon;
+	private WebElement edCan_cancelIcon_icon;
 	
 	@FindBy(xpath="//button[@value='back']")
-	WebElement edCan_Back_Button;
+	private WebElement edCan_back_button;
 	
 	public EditCandidatePage(WebDriver driver) {
 		super(driver);

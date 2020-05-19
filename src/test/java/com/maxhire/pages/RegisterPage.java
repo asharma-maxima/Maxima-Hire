@@ -19,7 +19,7 @@ public class RegisterPage extends BasePage {
 	@FindBy(xpath="//input[@placeholder='Email address']")
 	WebElement reg_emailAddress_input;
 	
-	@FindBy(xpath="//input[@placeholder='Confirm email address ']")
+	@FindBy(xpath="//input[@placeholder='Confirm email address']")
 	WebElement reg_confirmEmailAddress_input;
 	
 	@FindBy(xpath="//input[@placeholder='Create password']")
@@ -81,8 +81,6 @@ public class RegisterPage extends BasePage {
 		return reg_mainRegister_button;
 	}
 
-
-	
 	@Test
 	public void Register(String firstname, String lastname,String clientname,String email,String confirmemail,String password,
 			String confirmpassword)

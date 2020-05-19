@@ -39,7 +39,7 @@ public class LoginPage extends BasePage {
 
 	}
 	
-	public void login(String username, String password) throws InterruptedException {
+	public void login(String username, String password){
 		waitForElementToAppear(mail_add);
 		boolean isPresent = getMail_add().isDisplayed();
 		System.out.println("email address field is present "+isPresent);
@@ -50,6 +50,7 @@ public class LoginPage extends BasePage {
 	}
 	
 	public void verifyLoginPageTitle(String expectedTitle) {
+		waitForElementToAppear(title_text);
 		verifyTitle(title_text, expectedTitle);
 	}
 

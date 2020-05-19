@@ -81,11 +81,10 @@ public class RegisterPage extends BasePage {
 		return reg_mainRegister_button;
 	}
 
-	@Test
-	public void Register(String firstname, String lastname,String clientname,String email,String confirmemail,String password,
+	public void register(String firstname, String lastname,String clientname,String email,String confirmemail,String password,
 			String confirmpassword)
-	{
-		 reg_register_button.click();
+	{ 
+		 reg_mainRegister_button.click(); 
 		 reg_firstName_input.sendKeys(firstname);
 		 reg_lastName_input.sendKeys(lastname);
 		 reg_clientName_input.sendKeys(clientname);
@@ -93,16 +92,14 @@ public class RegisterPage extends BasePage {
 		 reg_confirmEmailAddress_input.sendKeys(confirmemail);
 		 reg_createPassword_input.sendKeys(password);
 		 reg_confirmPassword_input.sendKeys(confirmpassword);
-		 reg_mainRegister_button.click();
+		 reg_register_button.click();
 		 reg_login_link.click();
 		 
-		 
+		} 
+	
 	}
 
 		
 	
-	
-	
-}
 
 

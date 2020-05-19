@@ -1,7 +1,5 @@
 package com.maxhire.pages;
 
-import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -58,19 +56,4 @@ public class UserPage extends BasePage {
 		super(driver);
 	}
 
-	public WebDriver getDriver() {
-		return driver;
-	}
-
-	public WebElement getUser_profileName() {
-		return user_profileName;
-	}
-
-	public WebElement getaddUser_button() {
-		return user_addUser_button;
-	}
-	
-	
-	
-	
 }

@@ -41,65 +41,67 @@ public class RegisterPage extends BasePage {
 		super(driver);
 	}
 	
-	public WebElement getRegister() {
-		return reg_register_button;
-	}
-	
-	public WebElement getFirstname() {
+	public WebElement getReg_firstName_input() {
 		return reg_firstName_input;
 	}
-	
-	public WebElement getLastname() {
+
+	public WebElement getReg_lastName_input() {
 		return reg_lastName_input;
-	
-	public WebElement getClientname() {
+	}
+
+	public WebElement getReg_clientName_input() {
 		return reg_clientName_input;
 	}
-	
-	public WebElement getEmail() {
+
+	public WebElement getReg_emailAddress_input() {
 		return reg_emailAddress_input;
 	}
-	
-	public WebElement getConfirmemail() {
+
+	public WebElement getReg_confirmEmailAddress_input() {
 		return reg_confirmEmailAddress_input;
 	}
-	
-	public WebElement getPassword() {
+
+	public WebElement getReg_createPassword_input() {
 		return reg_createPassword_input;
 	}
-	
-	public WebElement getConfirmpassword() {
-		return reg_confirmPassword_input;	
+
+	public WebElement getReg_confirmPassword_input() {
+		return reg_confirmPassword_input;
 	}
-	
-	public WebElement getMainregister() {
-		return reg_mainRegister_button;
+
+	public WebElement getReg_register_button() {
+		return reg_register_button;
 	}
-	
-	public WebElement getLogin() {
-	
+
+	public WebElement getReg_login_link() {
 		return reg_login_link;
+	}
+
+	public WebElement getReg_mainRegister_button() {
+		return reg_mainRegister_button;
 	}
 
 
 	
 	@Test
-	public void Register() {
+	public void Register(String firstname, String lastname,String clientname,String email,String confirmemail,String password,
+			String confirmpassword)
+	{
 		 reg_register_button.click();
-		 reg_firstName_input.sendKeys("Supriya");
-		 reg_lastName_input.sendKeys("A");
-		 reg_clientName_input.sendKeys("Statestreet");
-		 reg_emailAddress_input.sendKeys("a.supriya64@gmail.com");
-		 reg_confirmEmailAddress_input.sendKeys("a.supriya64@gmail.com");
-		 reg_createPassword_input.sendKeys("hello");
-		 reg_confirmPassword_input.sendKeys("hello");;
+		 reg_firstName_input.sendKeys(firstname);
+		 reg_lastName_input.sendKeys(lastname);
+		 reg_clientName_input.sendKeys(clientname);
+		 reg_emailAddress_input.sendKeys(email);
+		 reg_confirmEmailAddress_input.sendKeys(confirmemail);
+		 reg_createPassword_input.sendKeys(password);
+		 reg_confirmPassword_input.sendKeys(confirmpassword);
 		 reg_mainRegister_button.click();
 		 reg_login_link.click();
 		 
 		 
 	}
 
-	
+		
 	
 	
 	

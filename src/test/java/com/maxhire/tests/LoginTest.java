@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import com.maxhire.pages.LoginPage;
 
 public class LoginTest extends BaseTest {
-    
+
 	@Test
 	public void login() throws InterruptedException {
 		LoginPage loginPage = new LoginPage(driver);
@@ -14,5 +14,6 @@ public class LoginTest extends BaseTest {
 		loginPage.getMail_add().sendKeys(username);
 		loginPage.getPassword().sendKeys(password);
 		loginPage.getLogin_btn().click();
+
 	}
 }

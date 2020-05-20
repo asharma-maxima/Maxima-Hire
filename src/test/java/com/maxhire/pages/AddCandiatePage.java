@@ -124,6 +124,178 @@ import org.openqa.selenium.support.FindBy;
 		
 		}
 
+		public WebElement getCan_chooseFile_button() {
+			return can_chooseFile_button;
+		}
+
+		public WebElement getCan_title_dropDown() {
+			return can_title_dropDown;
+		}
+
+		public WebElement getCan_firstName_input() {
+			return can_firstName_input;
+		}
+
+		public WebElement getCan_middleName_input() {
+			return can_middleName_input;
+		}
+
+		public WebElement getCan_lastName_input() {
+			return can_lastName_input;
+		}
+
+		public WebElement getCan_profile_input() {
+			return can_profile_input;
+		}
+
+		public WebElement getCan_owner_dropDown() {
+			return can_owner_dropDown;
+		}
+
+		public WebElement getCan_dateOfBirth_calanderSelect() {
+			return can_dateOfBirth_calanderSelect;
+		}
+
+		public WebElement getCan_primaryEmail_input() {
+			return can_primaryEmail_input;
+		}
+
+		public WebElement getCan_confirmPrimaryEmail_input() {
+			return can_confirmPrimaryEmail_input;
+		}
+
+		public WebElement getCan_phoneType_dropDown() {
+			return can_phoneType_dropDown;
+		}
+
+		public WebElement getCan_primaryPhoneNo_input() {
+			return can_primaryPhoneNo_input;
+		}
+
+		public WebElement getCan_confirmPrimaryNo_input() {
+			return can_confirmPrimaryNo_input;
+		}
+
+		public WebElement getCan_alternateEmail_input() {
+			return can_alternateEmail_input;
+		}
+
+		public WebElement getCan_alternatePhoneType_dropDown() {
+			return can_alternatePhoneType_dropDown;
+		}
+
+		public WebElement getCan_alternatePhoneNo_input() {
+			return can_alternatePhoneNo_input;
+		}
+
+		public WebElement getCan_address_input() {
+			return can_address_input;
+		}
+
+		public WebElement getCan_city_input() {
+			return can_city_input;
+		}
+
+		public WebElement getCan_state_input() {
+			return can_state_input;
+		}
+
+		public WebElement getCan_country_input() {
+			return can_country_input;
+		}
+
+		public WebElement getCan_zipCode_input() {
+			return can_zipCode_input;
+		}
+
+		public WebElement getCan_relocate_toggleButton() {
+			return can_relocate_toggleButton;
+		}
+
+		public WebElement getCan_bestTimeToCall_calanderSelect() {
+			return can_bestTimeToCall_calanderSelect;
+		}
+
+		public WebElement getCan_Time_input() {
+			return can_Time_input;
+		}
+
+		public WebElement getCan_timeZone_autoDropDown() {
+			return can_timeZone_autoDropDown;
+		}
+
+		public WebElement getCan_currentEmployer_input() {
+			return can_currentEmployer_input;
+		}
+
+		public WebElement getCan_joiningDate_calanderSelect() {
+			return can_joiningDate_calanderSelect;
+		}
+
+		public WebElement getCan_currency_autoDropDown() {
+			return can_currency_autoDropDown;
+		}
+
+		public WebElement getCan_currentPackage_input() {
+			return can_currentPackage_input;
+		}
+
+		public WebElement getCan_expectedPackage_input() {
+			return can_expectedPackage_input;
+		}
+
+		public WebElement getCan_noticePeriod_input() {
+			return can_noticePeriod_input;
+		}
+
+		public WebElement getCan_ratings_dropDown() {
+			return can_ratings_dropDown;
+		}
+
+		public WebElement getCan_source_dropDown() {
+			return can_source_dropDown;
+		}
+
+		public WebElement getCan_sourcedBy_dropDown() {
+			return can_sourcedBy_dropDown;
+		}
+
+		public WebElement getCan_jobType_dropDown() {
+			return can_jobType_dropDown;
+		}
+
+		public WebElement getCan_attachDocuments_button() {
+			return can_attachDocuments_button;
+		}
+
+		public WebElement getCan_comments_input() {
+			return can_comments_input;
+		}
+
+		public WebElement getCan_submit_input() {
+			return can_submit_input;
+		}
+		public void candidate() {
+			
+			can_chooseFile_button.click();
+			can_firstName_input.Sendkeys(firstname);
+			can_middleName_input.sendKeys(middlename);
+			can_lastName_input.sendKeys(lastname);
+			can_profile_input.sendKeys(profile);
+			can_owner_dropDown.isSelected();
+			can_dateOfBirth_calanderSelect.isSelected();
+			can_primaryEmail_input.sendKeys(email);
+			can_confirmPrimaryEmail_input.sendKeys(confirmemail);
+			can_phoneType_dropDown.isSelected();
+			can_primaryPhoneNo_input.sendKeys(phoneno);
+			can_confirmPrimaryNo_input.sendKeys(confirmphoneno);
+			can_alternateEmail_input.sendKeys(alternateemail);
+			can_alternatePhoneType_dropDown.isSelected();
+			
+			
+		}
+	
 	}
+	
 
 

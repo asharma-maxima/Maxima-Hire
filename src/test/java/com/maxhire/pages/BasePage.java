@@ -1,5 +1,7 @@
 package com.maxhire.pages;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -20,7 +22,7 @@ public class BasePage {
 	protected WebDriver driver;
 	private WebDriverWait wait;
 
-	private static final int TIMEOUT = 5;
+	private static final int TIMEOUT = 30;
 	private static final int POLLING = 100;
 
 	@FindBy(xpath = "//button[@class='btn dropdown-toggle btn-secondary btn-sm']")
@@ -59,34 +61,41 @@ public class BasePage {
 		// text)));
 		wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(element, text)));
 	}
-	
+
 	protected void takeScreenshot(String testCaseName, String fileName) {
-		File srcFile =((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
-			FileUtils.copyFile(srcFile, new File("./screenshots/"+testCaseName+"/"+fileName+".png"));
+			FileUtils.copyFile(srcFile, new File("./screenshots/" + testCaseName + "/" + fileName + ".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	protected void clickUsingJavascript(WebElement element) {
-		JavascriptExecutor js = (JavascriptExecutor)driver;	
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", element);
 	}
-	
+
 	protected void scrollUp() {
-		 JavascriptExecutor js = (JavascriptExecutor) driver;
-		 js.executeScript("window.scrollBy(0,250)");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,250)");
 	}
-	
+
 	protected void scrollDown() {
-		 JavascriptExecutor js = (JavascriptExecutor) driver;
-		 js.executeScript("window.scrollBy(0,-250)");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,-250)");
+	}
+
+	protected void scrollIntoView(WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", element);
 	}
 	
-	protected void scrollIntoView(WebElement element) {
-		 JavascriptExecutor js = (JavascriptExecutor) driver;
-		 js.executeScript("arguments[0].scrollIntoView();", element);
+	protected void verifyTitle(WebElement element, String expectedTitle) {
+		String actualText = element.getText();
+		System.out.println("Actual Text: "+actualText);
+		System.out.println("Expected Title: "+expectedTitle);
+		assertEquals(actualText, expectedTitle);
 	}
 
 }

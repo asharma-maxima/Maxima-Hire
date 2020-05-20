@@ -106,23 +106,4 @@ public class EditCandidatePage extends BasePage {
 		super(driver);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

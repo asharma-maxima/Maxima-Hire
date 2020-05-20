@@ -117,9 +117,9 @@ public class UserPage extends BasePage {
 		return user_fillForm_errMsg;
 	}
 	
-	public void getElementFromList(String element) {
-		for(WebElement wEle : this.getUser_accessLevelDropdown_list()) {
-			if(wEle.getText().contains(element))
+	public void clickElementFromList(List<WebElement> listElement, String sName) {
+		for(WebElement wEle : listElement) {
+			if(wEle.getText().trim().contains(sName))
 				wEle.click();
 		}
 	}

@@ -13,7 +13,7 @@ public class BrowserUtil {
 	
 	private BrowserUtil() {
 		if ("chrome".equalsIgnoreCase(BaseTest.browser)) {
-			System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
 			driver = new ChromeDriver();
 		}
 		if ("ie".equalsIgnoreCase(BaseTest.browser)) {

@@ -1,7 +1,10 @@
 package com.maxhire.pages;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 	
 	public class AddCandiatePage extends BasePage {
 		
@@ -107,21 +110,54 @@ import org.openqa.selenium.support.FindBy;
 		@FindBy(xpath="//div[contains(text(),'Sourced by')]//following-sibling::select")
 		private WebElement can_sourcedBy_dropDown;
 		
-		@FindBy(xpath="//div[@class='multiselect__tags']")
-		private WebElement can_jobType_dropDown;
-		
 		@FindBy(xpath="//a[contains(text(),'Attach Multiple Documents')]")
 		private WebElement can_attachDocuments_button;
 		
-		@FindBy(xpath="//a[contains(text(),'Comments')]")
-		private WebElement can_comments_input;
-		
 		@FindBy(xpath="//button[@class='btn btn-primary btn-sm']")
-		private WebElement can_submit_input;
+		private WebElement can_submit_button;
+		
+		@FindBy(xpath="//input[@id='files']")
+		private WebElement can_chooseFile1_button;
+		
+		@FindBy(xpath="//div[@class='vdatetime-calendar__current--month']")
+		WebElement can_calmonth_select;
+		
+		@FindBy(xpath="//div[@class='vdatetime-calendar__navigation--next']//*[local-name()='svg']")
+		WebElement can_cal_nextIcon;
+		
+		@FindBy(xpath="//div[@class='vdatetime-calendar__month__day']")
+		WebElement can_calDay_select;
+		
+		@FindBy(xpath="//div[@class='vdatetime-popup__year']")
+		WebElement can_calYear_select;
+		
+		@FindBy(xpath="//div[contains(text(),'Cancel')]")
+		WebElement can_calCancel_button;
+		
+		@FindBy(xpath="//div[contains(text(),'Ok')]")
+		WebElement can_calOk_button;
+		
+		@FindBy(xpath="//div[@class='multiselect__tags']")
+		WebElement can_assignJob_dropdown;
+		
+		@FindBy(xpath="//a[contains(text(),'Comments')]")
+		WebElement can_comments_button;
+		
+		@FindBy(xpath="//textarea[@placeholder='Comments, if any!']")
+		WebElement can_enterComments_input;
+		
+		@FindBy(xpath="//i[@class='multiselect__tag-icon']")
+		WebElement can_jobTypeTag_icon;
+		
+		@FindBy(xpath="//input[@placeholder='Assign Job']")
+		WebElement can_assignjob_input;
+		
+		@FindBy(xpath="//input[@placeholder='Please enter key skill with comma seperator.']")
+		WebElement can_keySkills_input;
+		
 		
 		public AddCandiatePage(WebDriver driver) {
 			super(driver);		
-		
 		}
 
 		public WebElement getCan_chooseFile_button() {
@@ -260,42 +296,273 @@ import org.openqa.selenium.support.FindBy;
 			return can_sourcedBy_dropDown;
 		}
 
-		public WebElement getCan_jobType_dropDown() {
-			return can_jobType_dropDown;
-		}
-
 		public WebElement getCan_attachDocuments_button() {
 			return can_attachDocuments_button;
 		}
 
-		public WebElement getCan_comments_input() {
-			return can_comments_input;
+		public WebElement getCan_submit_button() {
+			return can_submit_button;
+		}
+		
+		public WebElement getCan_chooseFile1_button() {
+			return can_chooseFile1_button;
+		}
+		
+		public WebElement getCan_calmonth_select() {
+			return can_calmonth_select;
 		}
 
-		public WebElement getCan_submit_input() {
-			return can_submit_input;
+		public WebElement getCan_cal_nextIcon() {
+			return can_cal_nextIcon;
 		}
-		public void candidate() {
-			
-			can_chooseFile_button.click();
-			can_firstName_input.Sendkeys(firstname);
-			can_middleName_input.sendKeys(middlename);
-			can_lastName_input.sendKeys(lastname);
-			can_profile_input.sendKeys(profile);
-			can_owner_dropDown.isSelected();
-			can_dateOfBirth_calanderSelect.isSelected();
-			can_primaryEmail_input.sendKeys(email);
-			can_confirmPrimaryEmail_input.sendKeys(confirmemail);
-			can_phoneType_dropDown.isSelected();
-			can_primaryPhoneNo_input.sendKeys(phoneno);
-			can_confirmPrimaryNo_input.sendKeys(confirmphoneno);
-			can_alternateEmail_input.sendKeys(alternateemail);
-			can_alternatePhoneType_dropDown.isSelected();
-			
-			
+
+		public WebElement getCan_calDay_select() {
+			return can_calDay_select;
 		}
+		
+		public WebElement getCan_calYear_select() {
+			return can_calYear_select;
+		}
+
+		public WebElement getCan_calCancel_button() {
+			return can_calCancel_button;
+		}
+		
+		public WebElement getCan_calOk_button() {
+			return can_calOk_button;
+		}
+		public WebElement getCan_assignJob_dropdown() {
+			return can_assignJob_dropdown;
+		}
+
+		public WebElement getCan_comments_button() {
+			return can_comments_button;
+		}
+
+		public WebElement getCan_enterComments_input() {
+			return can_enterComments_input;
+		}
+		
+		public WebElement getCan_jobTypeTag_icon() {
+			return can_jobTypeTag_icon;
+		}
+		public WebElement getCan_assignjob_input() {
+			return can_assignjob_input;
+		}
+		
+		public WebElement getCan_keySkills_input() {
+			return can_keySkills_input;
+		}
+			
+		public void addCand()
+			{
+			bas_add_button.click();
+			bas_addCandidate_icon.click();
+			}
+			
+			public void uploadResume(String path) throws InterruptedException
+			{
+				//driver.findElement(By.xpath("//label[contains(text(),'Import Resume')]")).click();
+				WebElement resume=getCan_chooseFile_button();
+				Thread.sleep(2000);
+				resume.click();
+				resume.sendKeys(path);
+				resume.sendKeys(Keys.ENTER);
+			}
+			
+			public void enterName(String nametype,String firstname,String middlename,String lastname,String profile)
+			{
+				getCan_title_dropDown().click();
+				Select title=new Select(getCan_title_dropDown());
+				title.selectByVisibleText(nametype);
+				getCan_firstName_input().sendKeys(firstname);
+				getCan_middleName_input().sendKeys(middlename);
+				getCan_lastName_input().sendKeys(lastname);
+				getCan_profile_input().sendKeys(profile);
+			}
+			
+			public void selectOwner(String ownervalue)
+			{
+				getCan_owner_dropDown().click();
+				Select own =new Select(getCan_owner_dropDown());
+				own.selectByValue(ownervalue);
+			}
+			
+			
+			public void selectDob(String year,String month,String day) throws InterruptedException
+			{
+				getCan_dateOfBirth_calanderSelect().click();
+				getCan_calYear_select().click();
+				driver.findElement(By.xpath("//div[@class='vdatetime-year-picker__list vdatetime-year-picker__list']//div[contains(text(),"+year+")]")).click();
+				Thread.sleep(4000);
+				//getCan_calCancel_button()
+				getCan_calOk_button().click();
+				Thread.sleep(4000);
+				driver.findElement(By.xpath("//div[@class='vdatetime-popup__date']")).click();
+				Thread.sleep(4000);
+				//driver.findElement(By.xpath("//div[@class='vdatetime-month-picker__list vdatetime-month-picker__list']/div[contains(text(),"+month+")]")).click();
+				clickUsingJavascript(driver.findElement(By.xpath("//div[@class='vdatetime-month-picker__list vdatetime-month-picker__list']/div[contains(text(),"+month+")]")));
+				//System.out.println("\"//div[@class='vdatetime-month-picker__list vdatetime-month-picker__list']/div[contains(text(),"+month+")]"));
+				//getCan_calCancel_button()
+				//getCan_calOk_button().click(); 
 	
+				//driver.findElement(By.xpath("//div[@class='vdatetime-calendar__month__day']//span[contains(text(),"+day+")]")).click();
+				getCan_calCancel_button();
+				getCan_calOk_button().click(); 	
+				Thread.sleep(4000);
+				}	
+
+			public void enterEmail(String email,String confirmemail )
+			{
+				getCan_primaryEmail_input().sendKeys(email);
+				getCan_confirmPrimaryEmail_input().sendKeys(confirmemail);	
+			}
+			
+			public void primaryPhone(String phntype,String phoneno,String cphoneno)
+			{
+			getCan_phoneType_dropDown().click();
+			Select ptype=new Select(getCan_phoneType_dropDown());
+			ptype.selectByVisibleText(phntype);
+			getCan_primaryPhoneNo_input().sendKeys(phoneno);
+			getCan_confirmPrimaryNo_input().sendKeys(cphoneno);
+			
+			}
+			public void altEmailPhnNo(String altemail, String altphonetype,String altphoneno)
+			{
+				getCan_alternateEmail_input().sendKeys(altemail);
+				getCan_alternatePhoneType_dropDown().click();
+				Select altptype=new Select(getCan_alternatePhoneType_dropDown());
+				altptype.selectByVisibleText(altphonetype);
+				getCan_alternatePhoneNo_input().sendKeys(altphoneno);	
+			}
+			
+			public void addressDetails(String address,String city,String state,String country,String zipcode)
+			{
+				getCan_address_input().sendKeys(address);
+				getCan_city_input().sendKeys(city);
+				getCan_state_input().sendKeys(state);
+				getCan_country_input().sendKeys(country);
+				getCan_zipCode_input().sendKeys(zipcode);	
+			}
+			
+			public void relocate()
+			{
+				getCan_relocate_toggleButton().click();
+			}
+			
+			public void selectDateToCallTime(int month,String day,String year)
+			{
+				getCan_bestTimeToCall_calanderSelect().click();
+				getCan_dateOfBirth_calanderSelect().click();
+				getCan_calYear_select().click();
+				driver.findElement(By.xpath("//div[@class='vdatetime-year-picker__list vdatetime-year-picker__list']//div[contains(text(),"+year+")]")).click();
+				//Thread.sleep(4000);
+				//getCan_calCancel_button()
+				getCan_calOk_button().click();
+				//Thread.sleep(4000);
+				Select months=new Select(driver.findElement(By.xpath("//div[@class='vdatetime-month-picker__list vdatetime-month-picker__list']")));
+				months.selectByIndex(month);
+				
+			}
+				//getCan_Time_input().sendKeys(time);
+			
+			
+			public void selectTimeZone(String timezone)
+			{
+				WebElement zone= getCan_timeZone_autoDropDown();
+				zone.click();
+				zone.sendKeys(timezone);
+				zone.sendKeys(Keys.ENTER);	 
+			}
+			
+			public void employeeDetails (String curntemployer,String currency,String curntpackage,String exppackage,String noticeperiod)
+			{
+				getCan_currentEmployer_input().sendKeys(curntemployer);
+				/*WebElement calMonth=getCan_joiningDate_calanderSelect();
+				while(!calMonth.getText().contains(month))
+				{
+					getCan_cal_nextIcon().click();
+				}
+				
+				@SuppressWarnings("unchecked")
+				List<WebElement> days=(List<WebElement>) getCan_calDay_select();
+				int count=days.size();
+				for(int i=0;i<count;i++)
+				{
+					String text=days.get(i).getText();
+					if(text.equalsIgnoreCase(day))
+					{
+						days.get(i).click();
+					}
+				}
+				WebElement cur=getCan_currency_autoDropDown();
+				cur.click();
+				cur.sendKeys(currency);
+				cur.sendKeys(Keys.ENTER);*/
+				getCan_currentPackage_input().sendKeys(curntpackage);
+				getCan_expectedPackage_input().sendKeys(exppackage);
+				getCan_noticePeriod_input().sendKeys(noticeperiod);
+				
+				}
+			
+			public void selectRating(String rating)
+			{
+				getCan_ratings_dropDown().click();
+				Select rat=new Select(getCan_ratings_dropDown());
+				rat.selectByVisibleText(rating);
+			}	
+			
+			public void selectSource(String source)
+			{
+			getCan_source_dropDown().click();
+			Select src=new Select(getCan_source_dropDown());
+			src.selectByVisibleText(source);
+			}
+			
+			public void selectSourceBy(String sourcedby)
+			{
+			getCan_sourcedBy_dropDown().click();
+			Select srcby=new Select(getCan_sourcedBy_dropDown());
+			srcby.selectByVisibleText(sourcedby);
+			}
+			public void keySkills(String skills)
+			{
+				getCan_keySkills_input().click();
+				getCan_keySkills_input().sendKeys(skills);
+			}
+			public void selectJobType(String assignjob) 
+			{
+				 getCan_assignJob_dropdown().click();
+				 WebElement job=getCan_assignjob_input();
+				 job.click();
+				 job.sendKeys(assignjob);
+				 job.sendKeys(Keys.ENTER);
+				 getCan_jobTypeTag_icon().click();
+				
+			}
+			public void uploadAttachments(String filepath)
+			{
+				getCan_attachDocuments_button().click();
+				WebElement attach=getCan_chooseFile1_button();
+				attach.click();
+				attach.sendKeys(filepath);
+				attach.sendKeys(Keys.ENTER);
+			}
+			public void comments(String cmnts)
+			{
+				getCan_comments_button().click();
+				getCan_enterComments_input().click();
+				getCan_enterComments_input().sendKeys(cmnts);
+				
+			}
+			
+			public void submit()
+			{
+				getCan_submit_button().click();
+			
+			}
 	}
+				
 	
 
 

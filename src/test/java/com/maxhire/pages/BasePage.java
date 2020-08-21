@@ -4,8 +4,10 @@ import static org.testng.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -33,13 +35,37 @@ public class BasePage {
 
 	@FindBy(xpath = "//a[contains(text(),'Candidate')]")
 	WebElement bas_addCandidate_icon;
-
-	@FindBy(xpath = "//div[@class='save activate']//a[@aria-label='Save']")
-	WebElement bas_saveChanges_icon;
-
-	@FindBy(xpath = "//div[@class='save activate']//a[@aria-label='Cancel']")
-	WebElement bas_cancelChanges_icon;
-
+	
+	@FindBy(xpath="//span[contains(text(),'Job')]")
+	WebElement bas_jobDetailsPage_link;
+	
+	@FindBy(xpath="//span[contains(text(),'Candidate')]")
+	WebElement bas_candidateDetailsPage_link;
+	
+	@FindBy(xpath="//ul[@class='dropdown-menu show']//a[@class='dropdown-item'][contains(text(),'User')]")
+	WebElement bas_addUser_icon;
+	
+	@FindBy(xpath="//span[text()='Users']")
+	private WebElement bas_userDetailspage_link;
+	
+	@FindBy(xpath="//a[contains(text),'Comments']")
+	private WebElement bas_commentsTab_tab;
+	
+	@FindBy(xpath="//div[@placeholder='Enter text...']")
+	private WebElement bas_enterText_input;
+	
+	@FindBy(xpath="//input[@placeholder='Add participants']")
+	private WebElement bas_addParticipants_dropDown;
+	
+	@FindBy(xpath="//button[@class='btn btn-primary btn-sm post_button']")
+	private WebElement bas_postComments_button;
+	
+	
+	
+	
+	
+	
+	
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
 		wait = new WebDriverWait(driver, TIMEOUT, POLLING);
@@ -96,6 +122,7 @@ public class BasePage {
 		System.out.println("Actual Text: "+actualText);
 		System.out.println("Expected Title: "+expectedTitle);
 		assertEquals(actualText, expectedTitle);
+	
 	}
-
 }
+	

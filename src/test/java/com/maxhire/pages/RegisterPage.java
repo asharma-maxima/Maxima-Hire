@@ -82,19 +82,23 @@ public class RegisterPage extends BasePage {
 	}
 
 	public void register(String firstname, String lastname,String clientname,String email,String confirmemail,String password,
-			String confirmpassword)
+			String confirmpassword) throws InterruptedException
 	{ 
-		 reg_mainRegister_button.click(); 
-		 reg_firstName_input.sendKeys(firstname);
-		 reg_lastName_input.sendKeys(lastname);
-		 reg_clientName_input.sendKeys(clientname);
-		 reg_emailAddress_input.sendKeys(email);
-		 reg_confirmEmailAddress_input.sendKeys(confirmemail);
-		 reg_createPassword_input.sendKeys(password);
-		 reg_confirmPassword_input.sendKeys(confirmpassword);
-		 reg_register_button.click();
-		 reg_login_link.click();
-		 
+		Thread.sleep(3000);
+		getReg_mainRegister_button().click();
+		Thread.sleep(3000);
+		getReg_firstName_input().sendKeys(firstname); 
+		getReg_lastName_input().sendKeys(lastname);
+		getReg_clientName_input().sendKeys(clientname);
+		getReg_emailAddress_input().sendKeys(email);
+		getReg_confirmEmailAddress_input().sendKeys(confirmemail);
+		getReg_createPassword_input().sendKeys(password);
+		getReg_confirmPassword_input().sendKeys(confirmpassword);
+		getReg_register_button().click();
+		getReg_login_link().click();
+
+		
+		
 		} 
 	
 	}

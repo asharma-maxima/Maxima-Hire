@@ -389,28 +389,14 @@ import org.openqa.selenium.support.ui.Select;
 			}
 			
 			
-			public void selectDob(String year,String month,String day) throws InterruptedException
+			public void selectDob(String field,String date) throws Exception
 			{
-				getCan_dateOfBirth_calanderSelect().click();
-				getCan_calYear_select().click();
-				driver.findElement(By.xpath("//div[@class='vdatetime-year-picker__list vdatetime-year-picker__list']//div[contains(text(),"+year+")]")).click();
-				Thread.sleep(4000);
-				//getCan_calCancel_button()
-				getCan_calOk_button().click();
-				Thread.sleep(4000);
-				driver.findElement(By.xpath("//div[@class='vdatetime-popup__date']")).click();
-				Thread.sleep(4000);
-				//driver.findElement(By.xpath("//div[@class='vdatetime-month-picker__list vdatetime-month-picker__list']/div[contains(text(),"+month+")]")).click();
-				clickUsingJavascript(driver.findElement(By.xpath("//div[@class='vdatetime-month-picker__list vdatetime-month-picker__list']/div[contains(text(),"+month+")]")));
-				//System.out.println("\"//div[@class='vdatetime-month-picker__list vdatetime-month-picker__list']/div[contains(text(),"+month+")]"));
-				//getCan_calCancel_button()
-				//getCan_calOk_button().click(); 
+			
+				super.selectDate(field, date);
+					
+			}	
 	
-				//driver.findElement(By.xpath("//div[@class='vdatetime-calendar__month__day']//span[contains(text(),"+day+")]")).click();
-				getCan_calCancel_button();
-				getCan_calOk_button().click(); 	
-				Thread.sleep(4000);
-				}	
+			
 
 			public void enterEmail(String email,String confirmemail )
 			{

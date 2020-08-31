@@ -47,7 +47,7 @@ public class EditCandidateTest extends BaseTest {
 		//EdCandid.enterComments("completed");
 		//EdCandid.addEditJobs("");
 		//EdCandid.candidateJobAssignment("updating", "Placed");
-		EdCandid.candidateHistory("123");
+		//EdCandid.candidateHistory("123");
 	
 	
 		

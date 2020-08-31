@@ -885,6 +885,7 @@ public class EditCandidatePage extends BasePage {
 		Thread.sleep(6000);
 		getEdCan_candidateHistory_drodown().click();
 		Select jobTitle=new Select(getEdCan_candidateHistory_drodown());
+		Thread.sleep(2000);
 		jobTitle.selectByValue(title);
 		Thread.sleep(3000);
 	}

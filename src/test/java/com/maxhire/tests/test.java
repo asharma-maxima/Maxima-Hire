@@ -20,7 +20,7 @@ public class test extends BaseTest{
 	}
 	
 	@Test
-	public void addCandidate() throws InterruptedException {
+	public void addCandidate() throws Exception {
 		Thread.sleep(3000);
 		AddCandiatePage candidate=new AddCandiatePage(driver);
 		candidate.addCand();
@@ -30,7 +30,7 @@ public class test extends BaseTest{
 		//candidate.enterName("Miss", "Latha","I", "Irala","abcd.com");
 		//candidate.selectOwner("70");
 		Thread.sleep(3000);
-		candidate.selectDob("1993", "March", "10");
+		candidate.selectDob("Date of Birth", "1991-02-15");
 		Thread.sleep(8000);
 		/*candidate.enterEmail("asdf123@gmail.com", "asdf123@gmail.com");
 		Thread.sleep(3000);

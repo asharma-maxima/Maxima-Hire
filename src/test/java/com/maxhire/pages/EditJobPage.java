@@ -195,6 +195,9 @@ public class EditJobPage extends BasePage {
 	@FindBy(xpath="//button[@class='btn btn-info btn-sm rounded-pill']")
 	private WebElement edJob_addFilter_button;
 	
+	@FindBy(xpath="//div[@class='row adjust']//span[2]//select")
+	private WebElement edJob_subFilter_dropDown;
+	
 	
 	
 	
@@ -260,6 +263,10 @@ public class EditJobPage extends BasePage {
 		
 	
 		
+		public WebElement getEdJob_subFilter_dropDown() {
+		return edJob_subFilter_dropDown;
+	}
+
 		public WebElement getEdJob_jobDescCancel_icon() {
 		return edJob_jobDescCancel_icon;
 	}
@@ -773,11 +780,19 @@ public class EditJobPage extends BasePage {
 	
 	public void deleteJob()
 	{
-		driver.findElement(By.xpath("//span[contains(text(),'scrum')]"));
-		driver.findElement(By.xpath("//span[@class='ag-icon ag-icon-checkbox-unchecked']")).click();
-		getEdJob_deleteJob_button().click();
-		driver.switchTo().alert().accept();
-		//driver.switchTo().alert().dismiss();
+		int i=0;
+		System.out.println("The selected record to be deleted is" +i+ " st record");
+		
+		for(int j=0;j<=i;j++)
+		{
+			driver.findElement(By.xpath("//div[@col-id='job_title']//span[1]/span[2]")).click();
+			getEdJob_deleteJob_button().click();
+			driver.switchTo().alert().accept();
+			//driver.switchTo().alert().dismiss();
+			
+							
+		}
+		
 			
 	}
 	
@@ -785,17 +800,15 @@ public class EditJobPage extends BasePage {
 	public void filters(String filterOptions,String subOptions,String keyword)
 	{
 		getEdJob_filter_button().click();
-		WebElement filter=getEdJob_selectFilters_dropDown();
-		filter.click();
-		Select option =new Select(filter);
+		getEdJob_selectFilters_dropDown().click();
+		Select option =new Select(getEdJob_selectFilters_dropDown());
 		option.selectByValue(filterOptions);
-		filter.sendKeys(Keys.TAB);
-		//filter.click();
-		//Select subOption =new Select(filter);
-		//subOption.selectByValue(subOptions);
-		//getEdJob_enterKeyWord_input().sendKeys(keyword);
-		//getEdJob_applyFilter_button().click();
-		//getEdJob_addFilter_button().click();
+		getEdJob_subFilter_dropDown().click();
+		Select subOption =new Select(getEdJob_subFilter_dropDown());
+		subOption.selectByValue(subOptions);
+		getEdJob_enterKeyWord_input().sendKeys(keyword);
+		getEdJob_applyFilter_button().click();
+		getEdJob_addFilter_button().click();
 	}
 	
 	public void refresh() throws InterruptedException

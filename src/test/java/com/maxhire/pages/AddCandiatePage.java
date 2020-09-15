@@ -29,9 +29,6 @@ import org.openqa.selenium.support.ui.Select;
 		@FindBy(xpath="//div[contains(text(),'Owner')]//following-sibling::select")
 		private WebElement can_owner_dropDown;
 		
-		@FindBy(xpath="//input[@placeholder='Select Birth Date']")
-		private WebElement can_dateOfBirth_calanderSelect;
-		
 		@FindBy(xpath="//input[@placeholder='Primary Email']")
 		private WebElement can_primaryEmail_input;
 		
@@ -74,9 +71,6 @@ import org.openqa.selenium.support.ui.Select;
 		@FindBy(xpath="//label[@class='custom-control-label']")
 		private WebElement can_relocate_toggleButton;
 		
-		@FindBy(xpath="//input[@placeholder='Select Available Date']")
-		private WebElement can_bestTimeToCall_calanderSelect;
-		
 		@FindBy(xpath="//input[@placeholder='Time: Eg, 9am to 5pm']")
 		private WebElement can_Time_input;
 		
@@ -118,24 +112,6 @@ import org.openqa.selenium.support.ui.Select;
 		
 		@FindBy(xpath="//input[@id='files']")
 		private WebElement can_chooseFile1_button;
-		
-		@FindBy(xpath="//div[@class='vdatetime-calendar__current--month']")
-		WebElement can_calmonth_select;
-		
-		@FindBy(xpath="//div[@class='vdatetime-calendar__navigation--next']//*[local-name()='svg']")
-		WebElement can_cal_nextIcon;
-		
-		@FindBy(xpath="//div[@class='vdatetime-calendar__month__day']")
-		WebElement can_calDay_select;
-		
-		@FindBy(xpath="//div[@class='vdatetime-popup__year']")
-		WebElement can_calYear_select;
-		
-		@FindBy(xpath="//div[contains(text(),'Cancel')]")
-		WebElement can_calCancel_button;
-		
-		@FindBy(xpath="//div[contains(text(),'Ok')]")
-		WebElement can_calOk_button;
 		
 		@FindBy(xpath="//div[@class='multiselect__tags']")
 		WebElement can_assignJob_dropdown;
@@ -186,10 +162,6 @@ import org.openqa.selenium.support.ui.Select;
 
 		public WebElement getCan_owner_dropDown() {
 			return can_owner_dropDown;
-		}
-
-		public WebElement getCan_dateOfBirth_calanderSelect() {
-			return can_dateOfBirth_calanderSelect;
 		}
 
 		public WebElement getCan_primaryEmail_input() {
@@ -248,10 +220,6 @@ import org.openqa.selenium.support.ui.Select;
 			return can_relocate_toggleButton;
 		}
 
-		public WebElement getCan_bestTimeToCall_calanderSelect() {
-			return can_bestTimeToCall_calanderSelect;
-		}
-
 		public WebElement getCan_Time_input() {
 			return can_Time_input;
 		}
@@ -308,29 +276,6 @@ import org.openqa.selenium.support.ui.Select;
 			return can_chooseFile1_button;
 		}
 		
-		public WebElement getCan_calmonth_select() {
-			return can_calmonth_select;
-		}
-
-		public WebElement getCan_cal_nextIcon() {
-			return can_cal_nextIcon;
-		}
-
-		public WebElement getCan_calDay_select() {
-			return can_calDay_select;
-		}
-		
-		public WebElement getCan_calYear_select() {
-			return can_calYear_select;
-		}
-
-		public WebElement getCan_calCancel_button() {
-			return can_calCancel_button;
-		}
-		
-		public WebElement getCan_calOk_button() {
-			return can_calOk_button;
-		}
 		public WebElement getCan_assignJob_dropdown() {
 			return can_assignJob_dropdown;
 		}
@@ -360,17 +305,16 @@ import org.openqa.selenium.support.ui.Select;
 			bas_addCandidate_icon.click();
 			}
 			
-			public void uploadResume(String path) throws InterruptedException
+		public void uploadResume(String path) throws InterruptedException
 			{
-				//driver.findElement(By.xpath("//label[contains(text(),'Import Resume')]")).click();
+				//driver.findElement(By.xpath("//label[contains(text(),'Import Resume')]"))
 				WebElement resume=getCan_chooseFile_button();
 				Thread.sleep(2000);
-				resume.click();
 				resume.sendKeys(path);
-				resume.sendKeys(Keys.ENTER);
+
 			}
 			
-			public void enterName(String nametype,String firstname,String middlename,String lastname,String profile)
+		public void enterName(String nametype,String firstname,String middlename,String lastname,String profile)
 			{
 				getCan_title_dropDown().click();
 				Select title=new Select(getCan_title_dropDown());
@@ -381,7 +325,7 @@ import org.openqa.selenium.support.ui.Select;
 				getCan_profile_input().sendKeys(profile);
 			}
 			
-			public void selectOwner(String ownervalue)
+		public void selectOwner(String ownervalue)
 			{
 				getCan_owner_dropDown().click();
 				Select own =new Select(getCan_owner_dropDown());
@@ -389,22 +333,20 @@ import org.openqa.selenium.support.ui.Select;
 			}
 			
 			
-			public void selectDob(String field,String date) throws Exception
+		public void selectDob(String field,String date) throws Exception
 			{
 			
-				super.selectDate(field, date);
+				selectDate(field, date);
 					
 			}	
 	
-			
-
-			public void enterEmail(String email,String confirmemail )
+		public void enterEmail(String email,String confirmemail )
 			{
 				getCan_primaryEmail_input().sendKeys(email);
 				getCan_confirmPrimaryEmail_input().sendKeys(confirmemail);	
 			}
 			
-			public void primaryPhone(String phntype,String phoneno,String cphoneno)
+		public void primaryPhone(String phntype,String phoneno,String cphoneno)
 			{
 			getCan_phoneType_dropDown().click();
 			Select ptype=new Select(getCan_phoneType_dropDown());
@@ -413,7 +355,8 @@ import org.openqa.selenium.support.ui.Select;
 			getCan_confirmPrimaryNo_input().sendKeys(cphoneno);
 			
 			}
-			public void altEmailPhnNo(String altemail, String altphonetype,String altphoneno)
+		
+		public void altEmailPhnNo(String altemail, String altphonetype,String altphoneno)
 			{
 				getCan_alternateEmail_input().sendKeys(altemail);
 				getCan_alternatePhoneType_dropDown().click();
@@ -422,7 +365,7 @@ import org.openqa.selenium.support.ui.Select;
 				getCan_alternatePhoneNo_input().sendKeys(altphoneno);	
 			}
 			
-			public void addressDetails(String address,String city,String state,String country,String zipcode)
+		public void addressDetails(String address,String city,String state,String country,String zipcode)
 			{
 				getCan_address_input().sendKeys(address);
 				getCan_city_input().sendKeys(city);
@@ -431,29 +374,21 @@ import org.openqa.selenium.support.ui.Select;
 				getCan_zipCode_input().sendKeys(zipcode);	
 			}
 			
-			public void relocate()
+		public void relocate()
 			{
 				getCan_relocate_toggleButton().click();
 			}
 			
-			public void selectDateToCallTime(int month,String day,String year)
+		public void selectDateToCallTime(String field,String date,String time) throws Exception
 			{
-				getCan_bestTimeToCall_calanderSelect().click();
-				getCan_dateOfBirth_calanderSelect().click();
-				getCan_calYear_select().click();
-				driver.findElement(By.xpath("//div[@class='vdatetime-year-picker__list vdatetime-year-picker__list']//div[contains(text(),"+year+")]")).click();
-				//Thread.sleep(4000);
-				//getCan_calCancel_button()
-				getCan_calOk_button().click();
-				//Thread.sleep(4000);
-				Select months=new Select(driver.findElement(By.xpath("//div[@class='vdatetime-month-picker__list vdatetime-month-picker__list']")));
-				months.selectByIndex(month);
-				
+				selectDate(field, date);
+				Thread.sleep(3000);
+				getCan_Time_input().sendKeys(time);
 			}
-				//getCan_Time_input().sendKeys(time);
+				
 			
 			
-			public void selectTimeZone(String timezone)
+		public void selectTimeZone(String timezone)
 			{
 				WebElement zone= getCan_timeZone_autoDropDown();
 				zone.click();
@@ -461,62 +396,41 @@ import org.openqa.selenium.support.ui.Select;
 				zone.sendKeys(Keys.ENTER);	 
 			}
 			
-			public void employeeDetails (String curntemployer,String currency,String curntpackage,String exppackage,String noticeperiod)
+		public void employeeDetails (String curntemployer,String currency,String curntpackage,String exppackage,String noticeperiod)
 			{
 				getCan_currentEmployer_input().sendKeys(curntemployer);
-				/*WebElement calMonth=getCan_joiningDate_calanderSelect();
-				while(!calMonth.getText().contains(month))
-				{
-					getCan_cal_nextIcon().click();
-				}
-				
-				@SuppressWarnings("unchecked")
-				List<WebElement> days=(List<WebElement>) getCan_calDay_select();
-				int count=days.size();
-				for(int i=0;i<count;i++)
-				{
-					String text=days.get(i).getText();
-					if(text.equalsIgnoreCase(day))
-					{
-						days.get(i).click();
-					}
-				}
-				WebElement cur=getCan_currency_autoDropDown();
-				cur.click();
-				cur.sendKeys(currency);
-				cur.sendKeys(Keys.ENTER);*/
 				getCan_currentPackage_input().sendKeys(curntpackage);
 				getCan_expectedPackage_input().sendKeys(exppackage);
 				getCan_noticePeriod_input().sendKeys(noticeperiod);
 				
 				}
 			
-			public void selectRating(String rating)
+		public void selectRating(String rating)
 			{
 				getCan_ratings_dropDown().click();
 				Select rat=new Select(getCan_ratings_dropDown());
 				rat.selectByVisibleText(rating);
 			}	
 			
-			public void selectSource(String source)
+		public void selectSource(String source)
 			{
 			getCan_source_dropDown().click();
 			Select src=new Select(getCan_source_dropDown());
 			src.selectByVisibleText(source);
 			}
 			
-			public void selectSourceBy(String sourcedby)
+		public void selectSourceBy(String sourcedby)
 			{
 			getCan_sourcedBy_dropDown().click();
 			Select srcby=new Select(getCan_sourcedBy_dropDown());
 			srcby.selectByVisibleText(sourcedby);
 			}
-			public void keySkills(String skills)
+		public void keySkills(String skills)
 			{
 				getCan_keySkills_input().click();
 				getCan_keySkills_input().sendKeys(skills);
 			}
-			public void selectJobType(String assignjob) 
+		public void selectJobType(String assignjob) 
 			{
 				 getCan_assignJob_dropdown().click();
 				 WebElement job=getCan_assignjob_input();
@@ -526,15 +440,13 @@ import org.openqa.selenium.support.ui.Select;
 				 getCan_jobTypeTag_icon().click();
 				
 			}
-			public void uploadAttachments(String filepath)
+		public void uploadAttachments(String filepath)
 			{
 				getCan_attachDocuments_button().click();
 				WebElement attach=getCan_chooseFile1_button();
-				attach.click();
 				attach.sendKeys(filepath);
-				attach.sendKeys(Keys.ENTER);
 			}
-			public void comments(String cmnts)
+		public void comments(String cmnts)
 			{
 				getCan_comments_button().click();
 				getCan_enterComments_input().click();
@@ -542,9 +454,10 @@ import org.openqa.selenium.support.ui.Select;
 				
 			}
 			
-			public void submit()
+		public void submit()
 			{
 				getCan_submit_button().click();
+				System.out.println("======Candidate details submiteed sucessfully=======");
 			
 			}
 	}

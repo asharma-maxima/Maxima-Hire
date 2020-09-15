@@ -2,7 +2,7 @@ package com.maxhire.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.annotations.Test;
+import org.testng.Assert;
 
 public class RegisterPage extends BasePage {
 	
@@ -37,9 +37,13 @@ public class RegisterPage extends BasePage {
 	@FindBy(xpath="//a[@class='register btn btn-primary']" )
 	WebElement reg_mainRegister_button;
 	
+	@FindBy(xpath="//div[@class='vue-notification-template vue-notification success']")
+	WebElement reg_sucessNotification_msg;
+	
 	public RegisterPage(WebDriver driver) {
 		super(driver);
 	}
+	
 	
 	public WebElement getReg_firstName_input() {
 		return reg_firstName_input;
@@ -80,13 +84,18 @@ public class RegisterPage extends BasePage {
 	public WebElement getReg_mainRegister_button() {
 		return reg_mainRegister_button;
 	}
+	
+
+	public WebElement getReg_sucessNotification_msg() {
+		return reg_sucessNotification_msg;
+	}
+
 
 	public void register(String firstname, String lastname,String clientname,String email,String confirmemail,String password,
 			String confirmpassword) throws InterruptedException
 	{ 
 		Thread.sleep(3000);
 		getReg_mainRegister_button().click();
-		Thread.sleep(3000);
 		getReg_firstName_input().sendKeys(firstname); 
 		getReg_lastName_input().sendKeys(lastname);
 		getReg_clientName_input().sendKeys(clientname);
@@ -96,6 +105,8 @@ public class RegisterPage extends BasePage {
 		getReg_confirmPassword_input().sendKeys(confirmpassword);
 		getReg_register_button().click();
 		getReg_login_link().click();
+		Assert.assertTrue(getReg_sucessNotification_msg().isDisplayed());
+		System.out.println(" User Registered sucessfully");
 
 		
 		

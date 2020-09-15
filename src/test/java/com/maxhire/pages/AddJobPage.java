@@ -1,6 +1,5 @@
 package com.maxhire.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -281,33 +280,25 @@ public class AddJobPage extends BasePage{
 		getJob_Description_input().sendKeys(description);
 	}
 	
-	public void submit()
+	public void submit() throws InterruptedException
 	{
 		
 		getJob_Submit_button().click();
 		
 	}
-	
 	public void messages()
 	{
 		Assert.assertTrue(job_success_message.isDisplayed());
-		Assert.assertTrue(job_jobCreatedSuccessfully_message.isDisplayed());
-		System.out.println("=====Submitted New Job Successfully=====");
-		
-	}
 
+		Assert.assertTrue(job_jobCreatedSuccessfully_message.isDisplayed());
+
+		System.out.println("=====Submitted New Job Successfully=====");
+
+	}
 	public AddJobPage(WebDriver driver) {
 		super(driver);
 		
 	}
-	
-	
-	
-	
-		
-	
-	
-	
 	
 	
 	}

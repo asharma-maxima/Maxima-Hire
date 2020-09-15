@@ -68,15 +68,6 @@ public class UserPage extends BasePage {
 	@FindBy(xpath="//div[@class='access_level']//select")
 	private WebElement user_accessLevel_dropDown;
 	
-	
-	
-	
-	
-	
-	
-	
-	
- 
 	public WebElement getUser_nameTitle_dropDown() {
 		return user_nameTitle_dropDown;
 	}
@@ -165,18 +156,24 @@ public class UserPage extends BasePage {
 	}
 	public void enterName(String nameTitle,String firstName,String middleName,String lastName)
 	{
-		getUser_nameTitle_dropDown().click();
-		 Select title=new Select(getUser_nameTitle_dropDown());
+			getUser_nameTitle_dropDown().click();
+			Select title=new Select(getUser_nameTitle_dropDown());
 			title.selectByVisibleText(nameTitle);
 			getUser_firstName_input().sendKeys(firstName);
 			getUser_middleName_input().sendKeys(middleName);
 			getUser_lastName_input().sendKeys(lastName);
 			
 	}
+	
+	public void DOB(String field,String date) throws Exception
+	{
+		selectDate(field,date);
+		
+	}
 	public void enterEmail(String email,String confirmEmail)
 	{
-		getUser_email_input().sendKeys(email);
-		getUser_confirmEmail_input().sendKeys(confirmEmail);		
+			getUser_email_input().sendKeys(email);
+			getUser_confirmEmail_input().sendKeys(confirmEmail);		
 	}
 	
 	public void phoneNumber(String phnType,String phoneNo)
@@ -184,14 +181,14 @@ public class UserPage extends BasePage {
 		getUser_phoneType_dropDown().click();
 		Select type=new Select(getUser_phoneType_dropDown());
 		type.selectByVisibleText(phnType);
-		 getUser_phoneNumber_input().sendKeys(phoneNo);
+		getUser_phoneNumber_input().sendKeys(phoneNo);
 	}
 	public void address(String address,String city,String zipCode,String state,String country)
 	{
 		getUser_address_input().sendKeys(address);
 		getUser_city_input().sendKeys(city);
 		getUser_zipCode_input().sendKeys(zipCode);
-		 getUser_state_input().sendKeys(state);
+		getUser_state_input().sendKeys(state);
 		getUser_country_input().sendKeys(country);
 
 	}
@@ -222,6 +219,8 @@ public class UserPage extends BasePage {
 	public void submitUser()
 	{
 		getUser_addUser_button().click();
+		
+		System.out.println("======User details are added sucssfully======");
 	}
 	public UserPage(WebDriver driver) {
 		super(driver);
